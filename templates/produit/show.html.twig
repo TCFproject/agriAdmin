@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+    <h1>Produits</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                {% for produit in produits %}
+                    <td style="color: #0a0a0a">
+                        <img src="{{ asset('img/banane.png') }}" alt="logoFruits"><br>
+                        {{ produit.nom }}<br>
+                        <button>Séléctionner</button>
+                    </td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_produit_index') }}">back to list</a>
+
+{% endblock %}

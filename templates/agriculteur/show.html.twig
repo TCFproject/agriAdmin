@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agriculteur{% endblock %}
+
+{% block body %}
+    <h1>Liste des produits de <span style="color: #1b9448; text-decoration: underline"> {{ agriculteur.name }} {{ agriculteur.lastname }} </span></h1>
+
+    <table>
+        <thead>
+            {% for produit in agriculteur.produits %}
+                <th style="color: #0a0a0a; position: center">
+                    <img src="{{ asset('img/carotte.png') }}" alt="Legumes"><br>
+                    {{ produit.nom }}<br>
+                    <button>
+                        Ajouter au panier
+                    </button>
+                </th>
+            {% endfor %}
+        </thead>
+    </table>
+{% endblock %}

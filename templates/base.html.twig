@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <link href="https://cdn.maptiler.com/maplibre-gl-js/v2.2.0-pre.2/maplibre-gl.css" rel="stylesheet" />
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="stylesheet" href="{{ asset('css/uber.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/map.css') }}">
+
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+    <div class="navbar">
+        <a style="font-size:16px" href="/">Terramain</a>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="myFunction()">Company
+                <i class="fa fa-caret-down"></i>
+            </button>
+        </div>
+        <a href="https://www.uber.com/eg/en/safety/">Safety</a>
+        <a href="https://help.uber.com/?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b">Help</a>
+        <a href="https://www.uber.com/eg/en/coronavirus/">COVID-19 resources</a>
+        <div class="topnav-right">
+            <a href="#languages"> <i class="fa fa-dribbble"></i> EN</a>
+            <a href="#products"><i class="fa fa-th"></i> Products</a>
+            <a href="#login"><i class="fa fa-user-o"></i> Login</a>
+            <button class="button-right">Sign up</button>
+        </div>
+    </div>
+
+    <!--The following part is missing-->
+    <!--I'm fed up of searching indeed-->
+    <!--The option called "Multiple Tabs, but I can't apply it. It's too hard, Ebrahem"-->
+
+    <!--Copied from searching "Navigation Bar"-->
+    <div class="container">
+        <img src="{{ asset('img/background.jpg') }}" alt="modalities" style="width:100%; height: 550px">
+        <div class="top-left">
+            <div class="navbar2">
+                {% block listType %}
+                    <a href="{{ path('app_produit_show', {'type_id': 1}) }}">Fruits</a>
+                    <a href="{{ path('app_produit_show', {'type_id': 3}) }}">Légumes</a>
+                    <a href="{{ path('app_produit_show', {'type_id': 2}) }}">Légumineuses</a>
+                {% endblock %}
+                <div class="input-group">
+                    <button class="btn">
+                        <svg class="search" viewBox="0 0 1024 1024" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg" width="14" height="14">
+                            <path d="M888.703059 847.158363 733.373365 691.826622c50.040696-59.650565 80.190367-136.551002 80.190367-220.507136 0-189.613522-153.703661-343.318206-343.31616-343.318206-189.616592 0-343.31923 153.703661-343.31923 343.318206s153.703661 343.318206 343.31923 343.318206c85.053118 0 162.867368-30.94171 222.838228-82.163301l155.141406 155.141406c11.174504 11.17655 29.300326 11.17655 40.47483 0C899.859144 876.440269 899.859144 858.334913 888.703059 847.158363zM470.248595 757.416456c-158.006663 0-286.10004-128.090307-286.10004-286.097994 0-158.006663 128.093377-286.099017 286.10004-286.099017s286.079574 128.093377 286.079574 286.099017C756.32817 629.326149 628.254236 757.416456 470.248595 757.416456z"></path>
+                        </svg>
+                    </button>
+                    <label>
+                        <input type="search" class="form-control" name="search" placeholder="Search" />
+                    </label>
+                </div>
+            </div>
+            <h1 style="font-size:30px;
+                        color:#000000;">Setting 900+ cities in motion</h1>
+            <a href="https://www.uber.com/cities/" style="color:#000000"><u>View all cities</u></a>
+
+        </div>
+    </div>
+
+    <!--Time to make the business part-->
+    {% block body %}
+        <div class="business">
+            <h1>Uber for Business</h1>
+            <p>The power of Uber in everyday business</p>
+        </div>
+
+        <!--Copied to make the three parts-->
+        <div class="row">
+            <div class="column">
+                <img src="https://lh3.googleusercontent.com/f5BYcb7BW-VNryjZc1cqoYQz2D1fE9vTXG9ik5biue0DvXQPZDKJF8obhR9j9ROfHHVHWzxOGtGEJPRgIzPazs32EiTYfb3pNhexsvJ-qyVs7ilgAE5owhUCxyoCA43CPATP0rarQgAgIdDBzEcBlK37uxTFUSQ60OEbLJyVunFBeXnk5COd9zTRLhTDDAsyvkYBFEHRBoL2TU82hJmupRMJH2eimdz8Jzcl14INoVCsou9KGjFavHsoD8E7XNph5Tn-Qopm0ZGBN1spkYW_9k81h7d1XdFfnCGFkVb43Aet_9McYqoMYzaaqE3ob3jh3ue8rPYepTfQOMDXRGtQxXnq3Lk5zUULgS1FhgZACS9X5g3SBoNhotWEGHfgdX5mLGEb7qyrRAbdjgDxs0WQ_LJjHpA9dDLy_Zml75c5kYBZByaxGywBSejvufdi8Rp4jjdkglVGfK1Xw0qHh-ekAHWO-FxhBtqnIJcdyKqyKZ2UmDYnQJSUxaXJrbLw_yyNvGjblf7Lu5HrBZLg2HjXNSTJkqqZv_hfPWsFF6F7GbN-k6BwaDYOzlCpe5JsindV1W0Jx58iXkz8j6UtnP9Y8QvpD6V0JBDpDxA_nmRvS7L_SnSgHC2gsSobCH3fA76FnMaRWeKFcwgmsz_6IS38rP8oxwRGmrZ5VNWOvd9iXYNqKbXl5JuhV0zqiWosIw=w360-h240-no?authuser=0" alt="Business Eater" style="width:100%; border-radius: 30%;">
+                <h4>Work meals</h4>
+                <p>Delight your employees with their favorite meals delivered directly to anywhere they work.</p>
+                <a href="https://www.uber.com/eg/en/business/eats/" style="color:black"><u>Learn more</u></a>
+            </div>
+            <div class="column">
+                <img src="https://lh3.googleusercontent.com/WgHI3x4O-TMoG_4P1MAr5O6NMvC4fJe_8sHxdnYpiFjQhf6FtMsFwIbMza_n8MdQbDALsctkBL4IWRif7kMLX9n2OqAZ9Zm6e-r33B1dxdgSdTh3U8EmRolo3XzXlkwiHG62C1JyPWT8IzFYDNvQQAmkBOuy0Vf3Gs2FXKScfevB8Z8RBgk_H6n1tqvXwVk1_XSGDWCfh-J5t_K-JG8EDKa6hVgmz11NLp4CcSATv36FjywyC78ZIugtAJ-tGjrvtOKmfIOxyOn9tm3qWz5yj_e42Fang_T2rRE18-UxqaCXCuhcF1fQ6g0nBGOzmg1BqCpkZVU18VxkuM7_5TrUPfcGgymF47g59SBJXMTurD5VPoW4RoS0BaJ4JJRf7vgEW-PujZNUmcdHMLWE6ddU9INt17w4i-4kNAMh-uI4_jQXNR7v_G62pzI5NSDHp15jGGtOhGu0xfPSyS_Cds_lkR4Z224lZFmfkRk7S0wBweT57aPaSg9Vmbvell0pnbSQZJpSZA0OQqJg5Pb74ctmknBqAILgRUU6jn5CW8ARB_sA5vYJxVYgUT48J0zw9tQBme4IEMTXmTX2DZa1Y4HoccakT3ZgpooImh4eqc1DVq7VBLvMmD4yXY1HMBnYT_KWKjWzwqU4I5Q_UIm4bWUR9QgvRMyISG1mLvo-JZiK_YjlMxNgDR_yJALYlrwCpw=w360-h240-no?authuser=0" alt="Employee Travel" style="width:100%">
+                <h4>Employee rides</h4>
+                <p>Take the work out of work-related trips. Create ground travel and commute programs for employees.</p>
+                <a href="https://www.uber.com/eg/en/business/business-travel/" style="color:black"><u>Learn more</u></a>
+            </div>
+            <div class="column">
+                <img src="https://lh3.googleusercontent.com/BpNs00MvfYxuj00Y9ykBwsr9dWpdI1Vp3daLk8HU0zLQiQJtDQK4SyFbij4Jt5Pk-KXuOK15_qLqs08THNE3IVTMzmtFDurSQ2zdbdUXALyxn-GhwcGcpGiy1JxoaVmOwMcIB2FxMhAEly11CB8cd3L0eV_sUiB1_KSaoDPgT0cAc-xfTH06gv8AxtVV3Ykv77OT54wJnKamW7ziiYD01G6U5lwFniTsZgD8ILj6v9uIifnQNHPLN5StxEKFYkQh-yY9P3I316H5Ek7uBCk3kAEWM6eFIa2HfZOZoaOLwdolzTX_jhzIHNtJPynT_MvLaVyvtR_NqcjU2jr2JUGMEwxi8nUeZdaY3Mn6yuHzuPUuQPnkyOOGH1FW65Lc9teiWIf_RczcZ2BXDHMZ-m610x8w3WaWUm6P4y1MIsX4dzoHosQkmEbKmJNY1FO-oQiC4QVGCFFtO6cBEpgnoYRN4ydQgkSnkH9xspo3Ap5WpEWK80IAreFxqP3TlGxXegd2CoZJxz5If-_uCeR-9Ynh_09MMeFcebf06E-HD8TwP2pnvXT4ivZhLIw5lnaCJnmeZ3vAIMWrOHnYLsyBLCEnLjHkFWZfoLw9aXQDdVfYAVg25ZHOQTMYQDYW9Qf5u8FNyWh_5sepMSwK_ohJjyRYGb8HXU8avXJTPl43SpJH0aihQgYi-xDufT_E3hWOQQ=w360-h240-no?authuser=0" alt="Ride Coordinates" style="width:100%">
+                <h4>Courtesy rides</h4>
+                <p>Aim to impress. Arrange door-to-door rides for your customers, clients, and guests.</p>
+                <a href="https://www.uber.com/eg/en/business/courtesy-rides/" style="color:black"><u>Learn more</u></a>
+            </div>
+        </div>
+
+    {% endblock %}
+    <div style="border-style: dotted"></div>
+    <div class="column1">
+        <h4 style="font-size: 35px;">Our commitment to your safety</h4>
+    </div>
+
+    <div class="row">
+        <div class="column2">
+            <h1><a href="https://www.uber.com/signup/drive/" style="color:black; font-size:100px; text-decoration: none;"> Sign up to drive<i class="fa fa-arrow-right"></i></a></h1>
+        </div>
+        <div class="column2">
+            <h1><a href="https://get.uber.com/sign-up/?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b" style="color:black; font-size:100px; text-decoration: none;"> Sign up to ride<i class="fa fa-arrow-right"></i></a></h1>
+        </div>
+    </div>
+    <br><br>
+
+    <!--<div id="map"></div>
+    Finally, I will add a fixed footer-->
+    <footer>
+        <p style="text-align:right;"><a href="https://www.uber.com/eg/en/terms/careem-acquisition-egypt/" style="color:white;">Acquisition of Careem</a></p>
+        <table>
+            <tr>
+                <th colspan="4" style="font-size:35px;"><a href="https://www.uber.com/eg/en/" style="color:white;">Terramain</a></th>
+            </tr>
+            <tr>
+                <th colspan="4"><a href="https://help.uber.com/?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b" style="color:white;">Visit Help Center</a></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr style="font-size:17px">
+                <th>Company</th>
+                <th>Products</th>
+                <th>Global citizenship</th>
+                <th>Innovation</th>
+            </tr>
+            <tr>
+                <td><a href="https://www.uber.com/eg/en/about/" style="color:white;">About us</a></td>
+                <td><a href="https://www.uber.com/eg/en/ride/" style="color:white;">Ride</a></td>
+                <td><a href="https://www.uber.com/eg/en/safety/" style="color:white;">Safety</a></td>
+                <td><a href="https://www.uber.com/eg/en/atg/" style="color:white;">ATG</a></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.uber.com/newsroom/" style="color:white;">Newsroom</a></td>
+                <td><a href="https://www.uber.com/eg/en/drive/" style="color:white;">Drive</a></td>
+                <td><a href="https://www.uber.com/eg/en/community/diversity-and-inclusion/" style="color:white;">Diversity</a></td>
+                <td><a href="https://www.uber.com/eg/en/uberai/" style="color:white;">AI</a></td>
+            </tr>
+            <tr>
+                <td><a href="https://investor.uber.com/?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b" style="color:white;">Investors</a></td>
+                <td><a href="https://www.ubereats.com/?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b" style="color:white;">Eat</a></td>
+                <td><a href="https://www.uber.com/eg/en/about/reports/law-enforcement/" style="color:white;">Transparency</a></td>
+                <td><a href="https://www.uber.com/eg/en/elevate/" style="color:white;">Elevate</a></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.uber.com/blog/" style="color:white;">Blog</a></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.uber.com/eg/en/careers/" style="color:white;">Careers</a></td>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+        </table>
+        <social>
+            <tr>
+                <th1><a href="https://www.facebook.com/uber?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b" style="color:white"><i class="fa fa-facebook-official"></i></a></th1>
+                <th1><a href="https://twitter.com/uber?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b" style="color:white"><i class="fa fa-twitter"></i></a></th1>
+                <th1><a href="https://www.youtube.com/channel/UCgnxoUwDmmyzeigmmcf0hZA?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b" style="color:white"><i class="fa fa-youtube-play"></i></a></th1>
+                <th1><a href="https://www.linkedin.com/company/1815218?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b" style="color:white"><i class="fa fa-linkedin-square"></i></a></th1>
+                <th1><a href="https://instagram.com/uber/?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b" style="color:white"><i class="fa fa-instagram"></i></a></th1>
+                <th1></th1>
+
+                <th1><a href="#languages" style="color:white"> <i class="fa fa-dribbble"></i> English International</a>  </th1>
+                <th1><a href="#location" style="color:white"> <i class="fa fa-map-marker"></i> Cairo</a>
+                </th1>
+                <th1></th1>
+                <th1></th1>
+                <th1></th1>
+                <th1></th1>
+                <th1></th1>
+                <th1></th1>
+                <th1></th1>
+                <th1></th1>
+                <th1></th1>
+                <th1></th1>
+
+                <th><a href="https://play.google.com/store/apps/details?id=com.ubercab&uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b"><img src="https://lh3.googleusercontent.com/rSE9kcjpRx0Frp9cvVb9-I-dcvve8B43VwnlKxXfkbB44c9E9zcfjrBF_qunqxi8bTaNZqaJJoq2VH26dmqWqC0sw_YQBx4KghFO8nmIHV7N22cTMJviIs22CNB6xMYPSONES8v_hdqJHw7M_TqU7Zz1tZkE3lF88BpglkiLN2KlQ8E5H76Le9Qb6v_UZZ6tiOj_ElQ9IeAQZjQ3qStO1I69v7qcBV1i9GcF1EP_jSuBoGVBkrNfk8BE7gNN899lHnJSEnCo4z-lmjMVJG7Z-dxXx-oeybBxIOHg5UpLte9XFmLle4jWvp9hmmyoQwhwJucfxVI3Plr7xp5WaEIUtl1iDjHyWvJgIzTl9G0loQYBbk5H2r6Kqn-rQJN0WzwO5iPILs2J6OXvQFSvf5q8ounJ22QA2YDS98IM1S-baYgBgAr0aPYNP1WY5PsH_TiKPlO0x8v584K3yU-ax9Zerfrg2bGr9J8vaj-IbFxeyI-KZr9W6Zk6tpwlFWPsujdaZuomfHWf4zpZbHYVN329a6aUpmZBfA6aGMJ3QYl5QWcJauylj8hAGl9qlNMfMQm-QvNvfy1Q8PQzrF_g7XaDPEjlXuiDJcX7udGS0jE7YUdojNs7U7I3smGg-V-F1wZGek7mOGiBfbfqK86pLXbwvvyDX_HNJWHqyqnWLOm0fsXcOSwmoxBVcd106PG7GQ=w1440-h541-no?authuser=0" style="width:130px;height:50px;"></a></th>
+
+                    <th><a href="https://apps.apple.com/us/app/uber/id368677368?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b"><img src="https://lh3.googleusercontent.com/GtaoduGsl8CbSWs7RH4uZ00FrukoEwhMeg8oshBu8wsbi8EAiJt-eDTUIkj9t9bGKfNT9CN_IEyQQ-m-se_q3_S0DaMmCGYRkLXBt8cE8HR4250IYUePbnQNdzoL_oGfeDSFYrtq_Lpxu7mVobDOYFyjiN0LQp5gj7ZtYsUXAoXREffh5nHR5NBRRVwZfm_-bUUAOKpU6jlWF4beZbx4d0A7ciZE5DlJns5tau11fAu1XtXOU88_dxFt_BkuzbuDDHapf25pDGiQuuJPGgv1sQOJn76EFjRz-kMSYBJLnXeMwEgh-ey70FyG7TcScIAasafNL2TlMXCtn2-sw3cuuaN5TBjVCijChNeWQDzKP08sNMjG1boJCDEVlHVIDDR6MWEvuGmCZjOBTV6fFncD9Al-XnSCZsfKFjhbpRTqgmvJxI4imKnSc7eTOy7JIPPwDi1UelqL_OO7c8qQ06Nq1rJp8AbJdo5hY19rtLl_eu4pGx521HNh90qbe4E6RZaXA6OqtjGw469GoyTNitd5o-YtQHrGvqBKlhnMlGQl_o0oETBbqWzOE-kLdVmeclW0K7ovn7UGY9GtvUf4JYoUquFpzFEcNHshyTQVdnVdMfIgnMbuyhB5IhMpXccJ8LuQzZT2ZEe61hIUn9xyrHDll-Vjs7475aVexSnjD-1Il2MpUcZmnxpXW7-WuRN2wQ=w1440-h581-no?authuser=0" style="width:130px;height:50px;"></a></th></tr>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </social>
+        <div class="btmnav-left">
+            <p>© 2020 Uber Technologies Inc.</p>
+        </div>
+
+        <div class="btmnav-right">
+            <a href="https://privacy.uber.com/?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b" style="color:white">Privacy</a>
+            <a href="https://accessibility.uber.com/?uclick_id=5f19a2da-866f-42f3-8bb9-02ebbd6ed33b" style="color:white">Accessability</a>
+            <a href="https://www.uber.com/terms/" style="color:white">Terms</a>
+        </div>
+
+    </footer>
+    </body>
+    <script src="https://cdn.maptiler.com/maplibre-gl-js/v2.2.0-pre.2/maplibre-gl.js"></script>
+    <script src="{{ asset('js/map.js') }}"></script>
+</html>
